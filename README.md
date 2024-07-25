@@ -1,7 +1,9 @@
 # URI CREATIVE
 ## Overview
 This a simple NestJS app to demonstrate OAuth 2.0 authentication with the Meta/Facebook API. The app uses Prisma ORM and
-uses in-memory(Sqlite) for storage
+uses in-memory(Sqlite) for storage. The app allows a user to signup or signin using his/her facebook account. Upon
+successful signup or sign, user's data like id, email, first name, last name and user's Facebook Id are logged on the
+Users table in the database.
 ## Features
 - Authentication Endpoint:
     - User signin with facebook
@@ -18,7 +20,7 @@ uses in-memory(Sqlite) for storage
 ### Clone the Repository
 ```shell
 git clone https://github.com/Daud94/uri-creative.git
-cd petaverse-assessment
+cd uri-creative
 ```
 ### Configuration
 Create a `.env` file in the root directory with the following content:
@@ -48,11 +50,11 @@ Apply migrations to the SQLite database:
 ```shell
 npx prisma migrate dev
 ```
-
 ### API Endpoints
+All API endpoints are documented with Swagger and can be accessed from `BASE_URL/api` e.g `localhost:4000/api`. However,
+the Facebook authentication flow cannot be tested on Swagger. Swagger is not designed for that.
 **Authentication Endpoint**
-GET `/auth/facebook`
-- Allows user to signup/signin with facebook
-  GET `/auth/facebook/callback`
-- Fallback Url after signing up or signing in with facebook
-  PUT `/api/auth/verify-otp`
+- GET `/auth/facebook` allows user to signup/signin with facebook
+- GET `/auth/facebook/callback` fall back url after signup/signin
+- GET `/users` fetch all users from the users table.
+
