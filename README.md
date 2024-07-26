@@ -52,7 +52,8 @@ npx prisma migrate dev
 ```
 ### API Endpoints
 All API endpoints are documented with Swagger and can be accessed from `BASE_URL/api` e.g `localhost:4000/api`. However,
-the Facebook authentication flow cannot be tested on Swagger. Swagger is not designed for that.
+the Facebook authentication flow cannot be tested on Swagger. Swagger is not designed for that. A test via browser is the best
+way to test them excpect for the endpoint for fetching all users.
 **Authentication Endpoint**
 - GET `/auth/facebook` allows user to signup/signin with facebook
 - GET `/auth/facebook/callback` fall back url after signup/signin
